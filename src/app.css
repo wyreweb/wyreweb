@@ -1,0 +1,10 @@
+body{
+    background:url('/WhatsApp\ Image\ 2023-04-24\ at\ 02.03.46\ \(1\).jpg');
+    background-size: cover;
+    color: white;
+}
+@media (width<500px){
+    body{
+        background: #1f0441;
+    }
+}

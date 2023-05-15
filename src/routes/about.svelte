@@ -16,6 +16,6 @@
         width: 80vw;
     }
     p{
-        font-size: clamp(1rem, -1.5rem + 8vw, 1.25rem);
+        font-size: clamp(0.9rem, -1.5rem + 8vw, 1.25rem);
     }
 </style>

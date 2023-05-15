@@ -44,11 +44,20 @@
     @media (width<500px){
         main{
             height: fit-content;
-            transform: translateX(-2.5vw);
+            transform: translateX(-3vw);
         }
         .content{
             display: block;
             margin: 0;
+        }
+        .contact-info{
+            width: 100%;
+            padding-left: 1rem;
+        }
+    }
+    @media (500px<width<999px){
+        .content{
+            grid-gap: 0;
         }
     }
 </style>

@@ -4,46 +4,63 @@
     import {faArrowCircleLeft,faArrowCircleRight} from '@fortawesome/free-solid-svg-icons'
   import About from "./about.svelte";
   import Services from "./services.svelte";
-  import Contact from "./contact.svelte";
-//   import {panGesture} from 'svelte-gestures'
+  import Contact from "./contact.svelte"; 
   let distance=0
+  let dist=0
+  let startX
   const goRight=()=>{
-    distance -= 100;
-    let leftBTN = document.querySelector('.left');
-    let rightBTN=document.querySelector('.right')
-    let cards = document.querySelector('.cards');
-    cards.style.transform = `translateX(${distance}vw)`;
-    if (distance === 0) {
-      leftBTN.style.display = "none";
+      distance -= 100;
+      let leftBTN = document.querySelector('.left');
+      let rightBTN=document.querySelector('.right')
+      let cards = document.querySelector('.cards');
+      cards.style.transform = `translateX(${distance}vw)`;
+      if (distance === 0) {
+          leftBTN.style.display = "none";
+        }
+        if (distance === -200) {
+            rightBTN.style.display = "none";
+        } else {
+            rightBTN.style.display="block"
+        }
+        leftBTN.style.display = "block";
     }
-    if (distance === -200) {
-      rightBTN.style.display = "none";
-    } else {
-        rightBTN.style.display="block"
+    const goLeft=()=>{
+        distance += 100;
+        let leftBTN = document.querySelector('.left');
+        let rightBTN=document.querySelector('.right')
+        let cards = document.querySelector('.cards');
+        cards.style.transform = `translateX(${distance}vw)`;
+        if (distance === 0) {
+            leftBTN.style.display = "none";
+        }
+        if (distance === -200) {
+            rightBTN.style.display = "none";
+        } else {
+            rightBTN.style.display="block"
+        }
     }
-    leftBTN.style.display = "block";
-  }
-  const goLeft=()=>{
-    distance += 100;
-    let leftBTN = document.querySelector('.left');
-    let rightBTN=document.querySelector('.right')
-    let cards = document.querySelector('.cards');
-    cards.style.transform = `translateX(${distance}vw)`;
-    if (distance === 0) {
-      leftBTN.style.display = "none";
+    const handleTouchStart = (event) => {
+        startX = event.touches[0].clientX;
+    };
+    
+    const handleTouchMove = (event) => {
+        const currentX = event.touches[0].clientX;
+        dist = startX - currentX;
+        console.log(distance)
+        if ((distance === 0 && dist < 0) || (distance <= -200 && dist > 0)){
+            dist=0
+        }
+    };
+    
+    const handleTouchEnd = () => {
+        if (dist > 0) {
+            // Swipe left
+            goRight();
+    } else if (dist < 0) {
+      // Swipe right
+      goLeft();
     }
-    if (distance === -200) {
-      rightBTN.style.display = "none";
-    } else {
-        rightBTN.style.display="block"
-    }
-  }
-  const handlePanMove=(event)=>{
-    const deltaX = event.detail.delta.x;
-    const deltaY = event.detail.delta.y;
-    distance += deltaX;
-    distance = Math.max(Math.min(positionX, 100), -100);
-  }
+  };
 </script>
 <main>
     <div class="navbar">
@@ -53,7 +70,9 @@
 </div>
         <button class="blog">Check out the blog</button>
 </div>
-<div class="cards">
+<div class="cards" on:touchstart={handleTouchStart}
+on:touchmove={handleTouchMove}
+on:touchend={handleTouchEnd}>
     <About/>
     <Services/>
     <Contact/>
@@ -110,6 +129,7 @@
     }
     .cards{
         display: flex;
+        position: relative;
         justify-content: space-between;
         gap: 1rem;
         width: 300vw;
@@ -146,6 +166,11 @@
         }
         .cards{
             margin: 15vw auto;
+        }
+    }
+    @media (500px<width<999px){
+        .buttons{
+            display: none;
         }
     }
 </style>

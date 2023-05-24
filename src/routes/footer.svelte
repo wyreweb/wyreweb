@@ -6,6 +6,9 @@
 </script>
 <main>
     <p>&copy; <span>{year}</span> Wyreweb OÜ</p>
+    <a href="https://koda.ee">
+    <img src="/ecci logo.png" alt="image001.png">
+</a>
 
     <ul class="social-links">
     <li><a href="https://instagram.com/wyreweb"><Fa icon={faInstagram} size="1.5x" /></a></li>
@@ -16,18 +19,36 @@
 </main>
 <style>
     main{
-        position: absolute;
-        bottom: 0;
         display: flex;
         justify-content: space-between;
-        width: 96vw;
+        overflow-y: hidden;
+        background-color: rgba(255,255,255,0.25);
+        backdrop-filter: blur(30px);
+        border-radius: 10px 10px 0 0;
+
     }
     .social-links{
         list-style: none;
         display: flex;
         gap: 1rem;
+        padding-right: 2rem;
     }
     a{
         color: white;
+    }
+    img{
+        width: 50%;
+    }
+    @media (width<500px){
+        main{
+            display: block;
+            text-align: center;
+        }
+        .social-links{
+            margin-left: 20vw;
+        }
+        img{
+            width: 75%;
+        }
     }
 </style>

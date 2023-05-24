@@ -8,8 +8,8 @@
     <div class="content">
         <p> If you have any questions about our services or would like to schedule a consultation, please don't hesitate to contact us.</p>
         <ul class="contact-info">
-            <li><a href="mailto:connect@wyreweb.com"><Fa icon={faEnvelope}/> connect@wyreweb.com</a></li>
-            <li><a href="https://wa.me/201128533544"><Fa icon={faWhatsapp}/> +201128533544</a></li>
+            <li><a href="mailto:connect@wyreweb.com"><Fa icon={faEnvelope}/> Send an email</a></li>
+            <li><a href="https://wa.me/201128533544"><Fa icon={faWhatsapp}/> Contact via Whatsapp</a></li>
         </ul>
     </div>
 </main>

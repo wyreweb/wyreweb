@@ -21,10 +21,12 @@
     main{
         display: flex;
         justify-content: space-between;
-        overflow-y: hidden;
-        background-color: rgba(255,255,255,0.25);
+        position: fixed;
+        /* overflow-y: hidden; */
         backdrop-filter: blur(30px);
         border-radius: 10px 10px 0 0;
+        bottom: 0;
+        width: 100%;
 
     }
     .social-links{

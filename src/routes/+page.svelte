@@ -84,7 +84,7 @@
         }
         .blog{
             font-size: 1rem;
-            margin-left:50vw;
+            margin-left:47.5vw;
         }
         .cards{
             margin: 15vw auto;

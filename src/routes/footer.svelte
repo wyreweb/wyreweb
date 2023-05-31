@@ -53,6 +53,7 @@
         }
         img{
             width: 60%;
+            margin-right: 0;
         }
         p{
             margin-left: -5vw;

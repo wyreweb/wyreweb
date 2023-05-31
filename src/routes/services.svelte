@@ -1,8 +1,16 @@
-<main>
+<script>
+     import {onMount} from 'svelte'
+    let show = false;
+
+onMount(() => {
+  show = true;
+});
+</script>
+<main style="opacity: {show ? 1 : 0}; transition: opacity 500ms ease; transition-delay:0.5s">
     <h3>Services</h3>
     <ul class="cards-grid">
         <li>Website Development</li>
-        <li>E-commerce Platform Building</li>
+        <li>E-commerce Website Building</li>
         <li>Digital Marketing & Branding</li>
         <li>Digitizing Menus</li>
     </ul>
@@ -21,7 +29,6 @@
     }
     @media (width<500px){
         main{
-            transform: translateX(-2vw);
             height: fit-content;
         }
     }

@@ -2,8 +2,14 @@
     import Fa from 'svelte-fa'
     import {faEnvelope} from '@fortawesome/free-solid-svg-icons'
     import {faWhatsapp} from '@fortawesome/free-brands-svg-icons'
+    import {onMount} from 'svelte'
+    let show = false;
+
+onMount(() => {
+  show = true;
+});
 </script>
-<main>
+<main style="opacity: {show ? 1 : 0}; transition: opacity 500ms ease; transition-delay:1s">
     <h3>Reach Out</h3>
     <div class="content">
         <p> If you have any questions about our services or would like to schedule a consultation, please don't hesitate to contact us.</p>
@@ -44,7 +50,6 @@
     @media (width<500px){
         main{
             height: fit-content;
-            transform: translateX(-3vw);
         }
         .content{
             display: block;

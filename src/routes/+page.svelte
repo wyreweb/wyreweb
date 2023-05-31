@@ -1,66 +1,8 @@
 <script>
     import Footer from "./footer.svelte";
-    import Fa from 'svelte-fa/src/fa.svelte'
-    import {faArrowCircleLeft,faArrowCircleRight} from '@fortawesome/free-solid-svg-icons'
   import About from "./about.svelte";
   import Services from "./services.svelte";
-  import Contact from "./contact.svelte"; 
-  let distance=0
-  let dist=0
-  let startX
-  const goRight=()=>{
-      distance -= 100;
-      let leftBTN = document.querySelector('.left');
-      let rightBTN=document.querySelector('.right')
-      let cards = document.querySelector('.cards');
-      cards.style.transform = `translateX(${distance}vw)`;
-      if (distance === 0) {
-          leftBTN.style.display = "none";
-        }
-        if (distance === -200) {
-            rightBTN.style.display = "none";
-        } else {
-            rightBTN.style.display="block"
-        }
-        leftBTN.style.display = "block";
-    }
-    const goLeft=()=>{
-        distance += 100;
-        let leftBTN = document.querySelector('.left');
-        let rightBTN=document.querySelector('.right')
-        let cards = document.querySelector('.cards');
-        cards.style.transform = `translateX(${distance}vw)`;
-        if (distance === 0) {
-            leftBTN.style.display = "none";
-        }
-        if (distance === -200) {
-            rightBTN.style.display = "none";
-        } else {
-            rightBTN.style.display="block"
-        }
-    }
-    const handleTouchStart = (event) => {
-        startX = event.touches[0].clientX;
-    };
-    
-    const handleTouchMove = (event) => {
-        const currentX = event.touches[0].clientX;
-        dist = startX - currentX;
-        console.log(distance)
-        if ((distance === 0 && dist < 0) || (distance <= -200 && dist > 0)){
-            dist=0
-        }
-    };
-    
-    const handleTouchEnd = () => {
-        if (dist > 0) {
-            // Swipe left
-            goRight();
-    } else if (dist < 0) {
-      // Swipe right
-      goLeft();
-    }
-  };
+  import Contact from "./contact.svelte";
 </script>
 <main>
     <div class="navbar">
@@ -68,19 +10,12 @@
     <img src="/logo.svg" alt="Wyreweb logo">
     <h1>Wyreweb</h1>
 </div>
-        <button class="blog">Check out the blog</button>
-</div>
-<div class="cards" on:touchstart={handleTouchStart}
-on:touchmove={handleTouchMove}
-on:touchend={handleTouchEnd}>
+<button class="blog">Check out the blog</button>
+    </div>
+<div class="cards">
     <About/>
     <Services/>
     <Contact/>
-</div>
-<div class="buttons">
-    <button class="left"on:click={goLeft}><Fa icon={faArrowCircleLeft} size="5x"/></button>
-    <button class="right" on:click={goRight}><Fa icon={faArrowCircleRight} size="5x"/></button>
-
 </div>
     <Footer/>
 </main>
@@ -116,35 +51,25 @@ on:touchend={handleTouchEnd}>
         background: transparent;
         border: none;
         color: #937fdb;
-        position: fixed;
-        top: 20vw;
         z-index: 10;
     }
-    .left{
-        left: 1rem;
-        display: none;
-    }
-    .right{
-        left: 94vw;
-    }
     .cards{
-        display: flex;
         position: relative;
-        justify-content: space-between;
         gap: 1rem;
-        width: 300vw;
         transition: all 0.3s;
     }
     .blog{
         color: white;
         background: transparent;
-        top: 2rem;
-        right: 1rem;
         border-radius: 10px;
         border: solid white 1px;
         font-size: 1.25rem;
         padding: 0.5rem;
         cursor: pointer;
+        height: 3rem;
+        margin-right: 1rem;
+        margin-top: 2rem;
+        position: relative;
     }
     .blog::after{
         content: 'soon';
@@ -154,23 +79,15 @@ on:touchend={handleTouchEnd}>
         right: -5%;
     }
     @media (width<500px){
-        .buttons{
-            display: none;
-        }
         .navbar{
-            flex-wrap: wrap;
+            display: block;
         }
         .blog{
             font-size: 1rem;
-            top: 7.5rem;
+            margin-left:50vw;
         }
         .cards{
             margin: 15vw auto;
-        }
-    }
-    @media (500px<width<999px){
-        .buttons{
-            display: none;
         }
     }
 </style>

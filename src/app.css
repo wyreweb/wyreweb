@@ -9,9 +9,6 @@ body{
     }
 }
 @media (500px<width<999px){
-    body{
-        background:#1f0441;
-    }
     p{
         font-size: 1.5rem;
     }

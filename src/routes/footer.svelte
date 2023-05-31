@@ -21,11 +21,8 @@
     main{
         display: flex;
         justify-content: space-between;
-        position: fixed;
-        /* overflow-y: hidden; */
         backdrop-filter: blur(30px);
         border-radius: 10px 10px 0 0;
-        bottom: 0;
         width: 100%;
 
     }
@@ -35,11 +32,16 @@
         gap: 1rem;
         padding-right: 2rem;
     }
+    p{
+        margin-left: 2rem;
+    }
     a{
         color: white;
     }
     img{
-        width: 50%;
+        width: 85%;
+        margin-right: -10rem;
+
     }
     @media (width<500px){
         main{
@@ -50,7 +52,16 @@
             margin-left: 20vw;
         }
         img{
-            width: 75%;
+            width: 60%;
+        }
+        p{
+            margin-left: -5vw;
         }
     }
+    @media (500px<width<999px){
+    p{
+        font-size: 1rem;
+        padding-right: 2rem;
+    }
+}
 </style>

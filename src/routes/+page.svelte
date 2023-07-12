@@ -10,7 +10,7 @@
     <img src="/logo.svg" alt="Wyreweb logo">
     <h1>Wyreweb</h1>
 </div>
-<button class="blog">Check out the blog</button>
+<a href="https://wyreweb.com/blog"><button class="blog">Check out the blog</button></a>
     </div>
 <div class="cards">
     <About/>
@@ -71,20 +71,13 @@
         margin-top: 2rem;
         position: relative;
     }
-    .blog::after{
-        content: 'soon';
-        color: red;
-        position: absolute;
-        top: -55%;
-        right: -5%;
-    }
     @media (width<500px){
         .navbar{
             display: block;
         }
         .blog{
             font-size: 1rem;
-            margin-left:47.5vw;
+            margin-left:30vw;
         }
         .cards{
             margin: 15vw auto;

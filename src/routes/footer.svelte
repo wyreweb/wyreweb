@@ -22,6 +22,7 @@
         display: flex;
         justify-content: space-between;
         backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
         border-radius: 10px 10px 0 0;
         width: 100%;
 

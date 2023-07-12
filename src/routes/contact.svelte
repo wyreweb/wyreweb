@@ -29,6 +29,7 @@ onMount(() => {
     main{
         background-color: rgba(255,255,255,0.25);
         backdrop-filter: blur(30px);
+        -webkit-backdrop-filter: blur(30px);
         border-radius: 10px;
         padding: 1rem;
         margin: 2.5vw auto;
